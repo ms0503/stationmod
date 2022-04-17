@@ -1,0 +1,26 @@
+[
+    {
+        "authorList": [
+            "Sora Tonami"
+        ],
+        "credits": "All contributors.",
+        "dependants": [],
+        "dependencies": [],
+        "description": "This mod adds many station-related items.\n\n駅関連のものを追加します。",
+        "logoFile": "assets/minecraft/textures/blocks/rail_normal.png",
+        "modid": "${modid}",
+        "modinfoversion": 2,
+        "name": "${modname}",
+        "requiredMods": [
+            "FML",
+            "forge",
+            "mcp"
+        ],
+        "parent": "",
+        "screenshots": [],
+        "updateJSON": "",
+        "url": "",
+        "useDependencyInformation": true,
+        "version": "${version}"
+    }
+]

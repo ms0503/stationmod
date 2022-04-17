@@ -1,0 +1,6 @@
+{
+    "parent": "item/ticket",
+    "textures": {
+        "layer0": "${modid}:items/ticket_punched"
+    }
+}
