@@ -20,7 +20,7 @@ apply plugin: 'net.minecraftforge.gradle'
 group 'ms.sora'
 def modid = 'stationmod'
 def modname = 'Station MOD / 駅MOD'
-version '0.1.0'
+version '0.1.1-dev.0'
 archivesBaseName = 'stationmod'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
@@ -117,6 +117,7 @@ processResources {
     inputs.property 'version', version
     from(sourceSets.main.resources.srcDirs) {
         include 'assets/stationmod/models/item/*.json'
+        include 'assets/stationmod/recipes/*.json'
         include 'mcmod.info'
         expand 'modid': modid, 'modname': modname, 'version': version
     }
