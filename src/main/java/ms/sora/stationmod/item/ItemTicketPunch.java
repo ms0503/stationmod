@@ -18,8 +18,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class TicketPunch extends StationItem {
-    public TicketPunch() {
+public class ItemTicketPunch extends StationItem {
+    public ItemTicketPunch() {
         super();
         this.setCreativeTab(StationMod.STATION_TAB);
         this.setHasSubtypes(false);

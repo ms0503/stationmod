@@ -7,8 +7,8 @@ import ms.sora.stationmod.StationMod;
 import net.minecraft.item.ItemStack;
 import org.apache.commons.lang3.StringUtils;
 
-public class Ticket extends StationItem {
-    public Ticket() {
+public class ItemTicket extends StationItem {
+    public ItemTicket() {
         super();
         this.setCreativeTab(StationMod.STATION_TAB);
         this.setHasSubtypes(true);

@@ -1,8 +1,8 @@
 package ms.sora.stationmod;
 
-import ms.sora.stationmod.item.Ticket;
-import ms.sora.stationmod.item.TicketPunch;
-import ms.sora.stationmod.proxy.IProxy;
+import ms.sora.stationmod.item.ItemTicket;
+import ms.sora.stationmod.item.ItemTicketPunch;
+import ms.sora.stationmod.proxy.CommonProxy;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
@@ -20,8 +20,8 @@ import org.apache.logging.log4j.Logger;
 public class StationMod {
     public static final CreativeTabs STATION_TAB = new StationTab("tabStation");
 
-    @SidedProxy(clientSide = "ms.sora.stationmod.proxy.ClientProxy", serverSide = "ms.sora.stationmod.proxy.ServerProxy")
-    public static IProxy proxy;
+    @SidedProxy(clientSide = "ms.sora.stationmod.proxy.ClientProxy", modId = ModInfo.MOD_ID, serverSide = "ms.sora.stationmod.proxy.CommonProxy")
+    public static CommonProxy proxy;
     public static Logger logger = LogManager.getLogger(ModInfo.MOD_ID);
     @Instance(ModInfo.MOD_ID)
     public static StationMod instance;
@@ -39,7 +39,7 @@ public class StationMod {
     @ObjectHolder(ModInfo.MOD_ID)
     public static class Items {
 
-        public static final Item ticket = new Ticket();
-        public static final Item ticket_punch = new TicketPunch();
+        public static final Item ticket = new ItemTicket();
+        public static final Item ticket_punch = new ItemTicketPunch();
     }
 }
