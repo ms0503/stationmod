@@ -13,7 +13,6 @@ buildscript {
 plugins {
     id 'idea'
     id 'maven-publish'
-    id 'nebula.release' version '9.1.2'
 }
 
 apply plugin: 'net.minecraftforge.gradle'
@@ -21,7 +20,8 @@ apply plugin: 'net.minecraftforge.gradle'
 group 'ms.sora'
 def modid = 'stationmod'
 def modname = 'Station MOD / 駅MOD'
-archivesBaseName = 'Station_MOD'
+version '0.1.0'
+archivesBaseName = 'stationmod'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 
@@ -155,16 +155,58 @@ artifacts {
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            artifacts {
-                archives jar
-                archives javadocJar
-                archives sourcesJar
+            from components.java
+            artifact(javadocJar) {
+                classifier 'javadoc'
+                extension 'jar'
+            }
+            artifact(sourcesJar) {
+                classifier 'sources'
+                extension 'jar'
+            }
+            pom {
+                dependencies {
+                    project.configurations.compile.dependencies.each { dep ->
+                        dependency {
+                            artifactId dep.name
+                            groupId dep.group
+                            version dep.version
+                        }
+                    }
+                }
+                description = 'A mod for Minecraft which adds many station-related items.'
+                developers {
+                    developer {
+                        email = 'ms0503 <at> outlook.com'
+                        id = 'ms0503'
+                        name = 'Sora Tonami'
+                    }
+                }
+                licenses {
+                    license {
+                        distribution = 'repo'
+                        name = 'Minecraft Mod Public License, Version 1.0.1'
+                        url = 'http://tsoft-web.com/nokiyen/minecraft/modding/MMPL'
+                    }
+                }
+                name = archivesBaseName
+                resolveStrategy = 1
+                scm {
+                    connection = 'scm:git:https://github.com/ms0503/stationmod.git'
+                    developerConnection = 'scm:git:https://github.com/ms0503/stationmod.git'
+                    url = 'https://github.com/ms0503/stationmod'
+                }
+                url = 'https://github.com/ms0503/stationmod'
             }
         }
     }
     repositories {
         maven {
-            url "file:///${project.projectDir}/mcmodsrepo"
+            credentials {
+                password = System.getenv('TOKEN')
+                username = 'ms0503'
+            }
+            url 'https://maven.pkg.github.com/ms0503/stationmod'
         }
     }
 }
