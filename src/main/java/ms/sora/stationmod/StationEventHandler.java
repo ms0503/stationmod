@@ -1,5 +1,8 @@
 package ms.sora.stationmod;
 
+import ms.sora.stationmod.StationMod.Blocks;
+import ms.sora.stationmod.StationMod.Items;
+import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
@@ -12,15 +15,21 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class StationEventHandler {
     @SubscribeEvent
+    public void registerBlocks(Register<Block> event) {
+        event.getRegistry().register(Blocks.rail_no_sleeper);
+    }
+    
+    @SubscribeEvent
     public void registerItems(Register<Item> event) {
-        event.getRegistry().register(StationMod.Items.ticket);
-        event.getRegistry().register(StationMod.Items.ticket_punch);
+        event.getRegistry().register(Items.ticket);
+        event.getRegistry().register(Items.ticket_punch);
     }
 
     @SubscribeEvent
     @SideOnly(Side.CLIENT)
     public void registerModels(ModelRegistryEvent event) {
-        ModelLoader.setCustomModelResourceLocation(StationMod.Items.ticket, 0, new ModelResourceLocation(new ResourceLocation(ModInfo.MOD_ID, StationMod.Items.ticket.getUnlocalizedName()), "inventory"));
-        ModelLoader.setCustomModelResourceLocation(StationMod.Items.ticket_punch, 0, new ModelResourceLocation(new ResourceLocation(ModInfo.MOD_ID, StationMod.Items.ticket_punch.getUnlocalizedName()), "inventory"));
+        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(Blocks.rail_no_sleeper), 0, new ModelResourceLocation(new ResourceLocation(ModInfo.MOD_ID, Blocks.rail_no_sleeper.getUnlocalizedName()), "inventory"));
+        ModelLoader.setCustomModelResourceLocation(Items.ticket, 0, new ModelResourceLocation(new ResourceLocation(ModInfo.MOD_ID, Items.ticket.getUnlocalizedName()), "inventory"));
+        ModelLoader.setCustomModelResourceLocation(Items.ticket_punch, 0, new ModelResourceLocation(new ResourceLocation(ModInfo.MOD_ID, Items.ticket_punch.getUnlocalizedName()), "inventory"));
     }
 }

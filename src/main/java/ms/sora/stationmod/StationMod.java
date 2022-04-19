@@ -1,8 +1,10 @@
 package ms.sora.stationmod;
 
+import ms.sora.stationmod.block.BlockRailNoSleeper;
 import ms.sora.stationmod.item.ItemTicket;
 import ms.sora.stationmod.item.ItemTicketPunch;
 import ms.sora.stationmod.proxy.CommonProxy;
+import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
@@ -37,8 +39,12 @@ public class StationMod {
     }
 
     @ObjectHolder(ModInfo.MOD_ID)
+    public static class Blocks {
+        public static final Block rail_no_sleeper = new BlockRailNoSleeper();
+    }
+    
+    @ObjectHolder(ModInfo.MOD_ID)
     public static class Items {
-
         public static final Item ticket = new ItemTicket();
         public static final Item ticket_punch = new ItemTicketPunch();
     }

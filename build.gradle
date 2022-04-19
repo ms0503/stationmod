@@ -20,14 +20,12 @@ apply plugin: 'net.minecraftforge.gradle'
 group 'ms.sora'
 def modid = 'stationmod'
 def modname = 'Station MOD / 駅MOD'
-version '0.1.1-dev.1'
+version '0.1.1-dev.2'
 archivesBaseName = 'stationmod'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 
-tasks.withType(AbstractCompile) {
-    options.encoding = 'UTF-8'
-}
+compileJava.options.encoding = javadoc.options.encoding = 'UTF-8'
 
 idea {
     module {
